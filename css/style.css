@@ -1,0 +1,53 @@
+body {
+	margin:0;
+	font-family: "Arial Black";
+}
+
+header {
+	background:#ebc634;
+	padding:20px;
+}
+
+header p.header-logo {
+	margin:0;
+	font-size:20px;
+	text-transform:uppercase;
+}
+
+#search-form {
+	background-image: url('../images/tool-belt-on-roof.jpg');
+	background-size: cover;
+	min-height:calc(60vh);
+	padding-top:300px;
+}
+
+#search-form form {
+	width:60%;
+	margin:auto;
+	background: rgba(0,0,0,0.5);
+}
+
+#search-form form fieldset {
+	border:none;
+	margin:0px;
+	padding:20px;
+}
+
+#search-form form fieldset input[type="text"] {
+	width:calc(80% - 40px);
+	padding:10px;
+}
+
+#search-form form fieldset input[type="submit"] {
+	width:20%;
+	padding:10px;
+	background:#ebc634;
+	font-size:16px;
+	margin-left:-6px;
+	border:none;
+}
+
+footer {
+	background:#ebc634;
+	padding:20px;
+}
