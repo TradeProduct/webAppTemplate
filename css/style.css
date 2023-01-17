@@ -47,6 +47,20 @@ header p.header-logo {
 	border:none;
 }
 
+@media (max-width: 767px) {
+	#search-form form {
+		width:90%;
+	}
+	
+	#search-form form fieldset input[type="text"] {
+		width:calc(90% - 40px);
+	}
+	
+	#search-form form fieldset input[type="submit"] {
+		width:15%;
+	}
+}
+
 footer {
 	background:#ebc634;
 	padding:20px;
