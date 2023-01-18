@@ -1,3 +1,7 @@
+* {
+	box-sizing:border-box;
+}
+
 body {
 	margin:0;
 	font-family: "Arial Black";
@@ -17,7 +21,7 @@ header p.header-logo {
 #search-form {
 	background-image: url('../images/tool-belt-on-roof.jpg');
 	background-size: cover;
-	min-height:calc(60vh);
+	min-height:calc(90vh);
 	padding-top:300px;
 }
 
@@ -34,31 +38,46 @@ header p.header-logo {
 }
 
 #search-form form fieldset input[type="text"] {
-	width:calc(80% - 40px);
+	width:40%;
 	padding:10px;
+	border:solid 2px #ebc634;
 }
 
 #search-form form fieldset input[type="submit"] {
-	width:20%;
+	width:calc(20% - 11px);
 	padding:10px;
 	background:#ebc634;
-	font-size:16px;
-	margin-left:-6px;
+	font-size:16.5px;
+	font-weight:bold;
 	border:none;
+	position:relative;
+	top: 1px;
 }
 
 @media (max-width: 767px) {
+	
+	#search-form {
+		padding-top: 150px;
+	}
+	
 	#search-form form {
 		width:90%;
 	}
 	
 	#search-form form fieldset input[type="text"] {
-		width:calc(90% - 40px);
+		width:100%;
+		margin-bottom:20px;
 	}
 	
 	#search-form form fieldset input[type="submit"] {
-		width:15%; 
+		width:100%;
+		top: 0;
 	}
+}
+
+.container-1020 {
+	width:1020px;
+	margin:auto;
 }
 
 footer {
