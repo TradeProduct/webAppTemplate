@@ -17,6 +17,7 @@ a {
 
 .heading {
 	font-family: "Arial Black";
+    margin:0;
 }
 
 header {
@@ -75,7 +76,6 @@ a.btn {
 }
 
 #search-form form {
-	width:60%;
 	margin:auto;
 	background: rgba(0,0,0,0.5);
 }
@@ -185,3 +185,18 @@ a.btn {
 	margin:auto 0;
 }
 
+/* Details Page */
+
+.details-container {
+    padding:20px 0;
+    display:flex;
+}
+
+.details-container .logo {
+    width:100%;
+}
+
+.details-contact {
+    width:30%;
+    margin-right:20px;
+}
