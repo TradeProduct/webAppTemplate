@@ -189,6 +189,11 @@ a.btn {
 
 /* Details Page */
 
+.breadcrumb {
+    padding-top:20px;
+    font-weight: bold;
+}
+
 .details-container {
     padding:20px 0;
     display:flex;
@@ -201,4 +206,15 @@ a.btn {
 .details-contact {
     width:30%;
     margin-right:20px;
+}
+
+@media (max-width: 767px) {
+    .details-container {
+        flex-direction:column;        
+    }
+    
+    .details-contact {
+        width:100%;
+        margin-bottom:20px;
+    }	
 }
