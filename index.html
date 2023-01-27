@@ -23,8 +23,8 @@
         
                 <form action="search.html">
                     <fieldset>
-                        <input type="text" name="trade" id="trade" placeholder="Trade" required>
-                        <input type="text" name="location" id="location" placeholder="Location" required>
+                        <input type="text" name="trade" id="trade" placeholder="Trade" autocomplete="off" spellcheck="false" required>
+                        <input type="text" name="location" id="location" placeholder="Location" autocomplete="off" spellcheck="false" required>
                         <input type="submit" value="Search" class="btn">
                     </fieldset>
                 </form>
@@ -40,6 +40,68 @@
             <p>Trade Product 2023 &copy;</p>
         </div>
 	</footer>
-	
+	<script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/typeahead.bundle.js"></script>
+    <script>
+    $(document).ready(function(){
+        
+        var trades = ['Plumber', 'Electrician', 'Builder', 'Structural Engineer', 'Groundworker'];
+        
+        var trades = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.whitespace,
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            local: trades
+        });
+        
+        $('#trade').typeahead({
+            hint: true,
+            highlight: true, /* Enable substring highlighting */
+            minLength: 1 /* Specify minimum characters required for showing result */
+        },
+        {
+            name: 'trades',
+            source: trades
+        });
+        
+        // Defining the local dataset
+        var locations = ['Addlestone',
+                        'Ashtead',
+                        'Chertsey',
+                        'Chessington',
+                        'Cobham',
+                        'East Molesey',
+                        'Epsom',
+                        'Esher',
+                        'Kingston upon Thames',
+                        'Leatherhead',
+                        'New Malden',
+                        'Surbiton',
+                        'Tadworth',
+                        'Thames Ditton',
+                        'Walton-on-Thames',
+                        'West Molesey',
+                        'Weybridge',
+                        'Worcester Park'];
+        
+        // Constructing the suggestion engine
+        var locations = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.whitespace,
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            local: locations
+        });
+        
+        // Initializing the typeahead
+        $('#location').typeahead({
+            hint: true,
+            highlight: true, /* Enable substring highlighting */
+            minLength: 1 /* Specify minimum characters required for showing result */
+        },
+        {
+            name: 'locations',
+            source: locations
+        });
+    });  
+    </script>
+    
   </body>
 </html>

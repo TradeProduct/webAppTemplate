@@ -93,9 +93,33 @@ a.btn {
 }
 
 #search-form form fieldset input[type="text"] {
-	width:40%;
+    width:100%;
 	padding:10px;
 	border:solid 2px #ebc634;
+    vertical-align:baseline !important;
+}
+
+.twitter-typeahead {
+    width:40%;
+}
+
+.tt-menu {
+    background: #FFF;
+    padding:10px;
+    width:100%;
+}
+
+.tt-suggestion {
+    padding:10px;
+}
+
+.tt-suggestion:hover {
+    cursor:pointer;
+    background: #ebc634;
+}
+
+.tt-cursor {
+    background: #ebc634;
 }
 
 #search-form form fieldset input[type="submit"] {
@@ -115,6 +139,14 @@ a.btn {
 		width:90%;
 	}
 	
+    .twitter-typeahead {
+        width:100%;
+    }
+    
+    .tt-menu {
+        top: 70% !important;
+    }
+    
 	#search-form form fieldset input[type="text"] {
 		width:100%;
 		margin-bottom:20px;
