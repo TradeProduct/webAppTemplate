@@ -40,67 +40,37 @@
             <p>Trade Product 2023 &copy;</p>
         </div>
 	</footer>
-	<script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/typeahead.bundle.js"></script>
     <script>
     $(document).ready(function(){
         
-        var trades = ['Plumber', 'Electrician', 'Builder', 'Structural Engineer', 'Groundworker'];
-        
-        var trades = new Bloodhound({
-            datumTokenizer: Bloodhound.tokenizers.whitespace,
-            queryTokenizer: Bloodhound.tokenizers.whitespace,
-            local: trades
-        });
-        
-        $('#trade').typeahead({
-            hint: true,
-            highlight: true, /* Enable substring highlighting */
-            minLength: 1 /* Specify minimum characters required for showing result */
-        },
-        {
-            name: 'trades',
-            source: trades
-        });
-        
-        // Defining the local dataset
-        var locations = ['Addlestone',
-                        'Ashtead',
-                        'Chertsey',
-                        'Chessington',
-                        'Cobham',
-                        'East Molesey',
-                        'Epsom',
-                        'Esher',
-                        'Kingston upon Thames',
-                        'Leatherhead',
-                        'New Malden',
-                        'Surbiton',
-                        'Tadworth',
-                        'Thames Ditton',
-                        'Walton-on-Thames',
-                        'West Molesey',
-                        'Weybridge',
-                        'Worcester Park'];
-        
-        // Constructing the suggestion engine
-        var locations = new Bloodhound({
-            datumTokenizer: Bloodhound.tokenizers.whitespace,
-            queryTokenizer: Bloodhound.tokenizers.whitespace,
-            local: locations
-        });
-        
-        // Initializing the typeahead
-        $('#location').typeahead({
-            hint: true,
-            highlight: true, /* Enable substring highlighting */
-            minLength: 1 /* Specify minimum characters required for showing result */
-        },
-        {
-            name: 'locations',
-            source: locations
-        });
+        initTypeahead('trade', 'http://127.0.0.1:5000/typeahead/services');
+        initTypeahead('location', 'http://127.0.0.1:5000/typeahead/locations');
     });  
+    
+    function initTypeahead(elementId, url) {
+    
+        var source = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.whitespace,
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            prefetch: url
+        });
+        
+        source.clearPrefetchCache();
+        source.initialize();
+
+        $('#' + elementId).typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1
+        },
+        {
+            source: source.ttAdapter()
+        });
+    
+    }
+    
     </script>
     
   </body>
